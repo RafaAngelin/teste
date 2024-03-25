@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exemplo de Requisição AJAX</title>
+</head>
+<body>
+
+<h2>Exemplo de Requisição AJAX</h2>
+
+<form id="meuFormulario">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <button type="button" onclick="enviarFormulario()">Enviar</button>
+</form>
+
+<div id="resultado"></div>
+
+<script>
+    function enviarFormulario() {
+        var nome = document.getElementById("nome").value;
+        var email = document.getElementById("email").value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    document.getElementById("resultado").innerHTML = xhr.responseText;
+                } else {
+                    document.getElementById("resultado").innerHTML = "Ocorreu um erro ao processar a requisição.";
+                }
+            }
+        };
+
+        xhr.open("POST", "processar_dados.php", true); // Substitua pelo caminho do seu arquivo de processamento no servidor
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("nome=" + encodeURIComponent(nome) + "&email=" + encodeURIComponent(email));
+    }
+</script>
+
+</body>
+</html>
