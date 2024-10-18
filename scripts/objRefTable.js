@@ -14,7 +14,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.Keyboard.Cnds.IsKeyDown,
-		C3.Plugins.Touch.Cnds.OnHoldGestureObject,
+		C3.Plugins.Touch.Cnds.IsTouchingObject,
 		C3.Behaviors.EightDir.Acts.SimulateControl,
 		C3.Plugins.Sprite.Acts.SetMirrored,
 		C3.Plugins.System.Cnds.EveryTick,
